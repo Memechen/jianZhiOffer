@@ -6,18 +6,37 @@ public class Que1 {
 
     public boolean Find(int target, int[][] array) {
 
-        if (array == null || array[0].length == 0){
+        if (array == null || array[0].length == 0) {
             return false;
         }
-    
+
 
         for (int i = 0; i < array.length; i++) {
 
-            if (target <= array[i][array[0].length - 1] && target <= array[i][0]) {
+            if (target <= array[i][array[0].length - 1] && target >= array[i][0]) {
                 for (int j = 0; j < array[0].length; j++) {
                     if (target == array[i][j]) {
                         return true;
                     }
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+
+    public boolean FindTest(int target, int [][] array) {
+        //判空
+        if (array == null || array[0].length == 0) {
+            return false;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (target==array[i][j]) {
+                    return true;
                 }
             }
         }
