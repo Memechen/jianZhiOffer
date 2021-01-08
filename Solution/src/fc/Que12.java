@@ -48,7 +48,7 @@ public class Que12 {
      * @return
      */
     public double Power2(double base, int exponent) {
-        if (base == 0) {
+        if (base == 0.0) {
             return 0;
         }
         if (exponent == 0) {
