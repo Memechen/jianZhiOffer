@@ -31,7 +31,7 @@ public class Que13 {
             }
         }
         // 定位到奇数的个数，也是偶数在原数组中下标开始的位置。将偶数集合中的数据添加到原数组的后面。
-        index = array.length-other.size();
+        index = array.length - other.size();
         for (int i = 0; i < other.size(); i++) {
             array[index++] = other.get(i);
         }
@@ -61,6 +61,31 @@ public class Que13 {
                 }
             }
         }
+    }
+
+
+    public int reverse(int x) {
+        int res = 0;
+
+        while (x != 0) {
+            int mod = x % 10;
+
+            if (res * 10 > Integer.MAX_VALUE - 7 || res * 10 < Integer.MIN_VALUE + 8 || res > Integer.MAX_VALUE || res < Integer.MIN_VALUE) {
+                return 0;
+            }
+
+            if (res > Integer.MAX_VALUE || (res == Integer.MAX_VALUE / 10 && mod == 7)) {
+                return 0;
+            }
+
+            if (res < Integer.MIN_VALUE || (res == Integer.MIN_VALUE / 10 && mod == -8)) {
+                return 0;
+            }
+
+            res = res * 10 + mod;
+            x /= 10;
+        }
+        return res;
     }
 
 }
